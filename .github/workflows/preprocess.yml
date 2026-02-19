@@ -23,18 +23,15 @@ jobs:
       run: pip install pandas
 
     - name: Run preprocessing script
-      run: python "/content/drive/MyDrive/Colab Notebooks/Demo3/automate_diabetes_prediction.py"
-      # Define example paths for raw and processed data
-      # Note: The script automate_diabetes_prediction.py should handle these paths internally
-      # based on the modifications made in the previous step.
+      run: python "/content/drive/MyDrive/Colab Notebooks/Demo6/mlflow_project/diabetes_preprocessing.py"
 
     - name: Configure Git
-      run |
+      run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
     - name: Commit processed data
-      run |
+      run: |
         git add -A
         git diff-index --quiet HEAD || git commit -m "(Automated) Preprocessed diabetes data"
         git push

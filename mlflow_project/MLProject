@@ -1,0 +1,21 @@
+
+name: diabetes-prediction-mlflow
+
+conda_env: conda.yaml
+
+entry_points:
+  preprocess:
+    command: "python diabetes_preprocessing.py --raw_data_path {raw_data_path} --processed_data_path {processed_data_path}"
+    parameters:
+      raw_data_path:
+        type: string
+        default: "./data/raw/diabetes_prediction_dataset.csv"
+      processed_data_path:
+        type: string
+        default: "./data/processed/diabetes_processed_data.csv"
+  train:
+    command: "python modelling.py --processed_data_path {processed_data_path}"
+    parameters:
+      processed_data_path:
+        type: string
+        default: "./data/processed/diabetes_processed_data.csv"

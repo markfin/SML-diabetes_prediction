@@ -1,0 +1,50 @@
+
+name: MLflow CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-mlflow-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9' # Ensure this matches conda.yaml
+
+    - name: Install MLflow dependencies (conda environment)
+      run: |
+        conda env create -f mlflow_project/conda.yaml -n mlflow-env
+        echo "CONDA_PREFIX=$(conda env list | grep mlflow-env | awk '{print $NF}')" >> $GITHUB_ENV
+        echo "$CONDA_PREFIX/bin" >> $GITHUB_PATH
+
+    - name: Run MLflow Preprocessing Step
+      run: |
+        source $CONDA_PREFIX/bin/activate mlflow-env
+        mlflow run mlflow_project -e preprocess
+
+    - name: Run MLflow Training Step
+      run: |
+        source $CONDA_PREFIX/bin/activate mlflow-env
+        mlflow run mlflow_project -e train
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Commit and Push MLflow Artifacts and Processed Data
+      run: |
+        git add -A # Add all changes, including processed data and mlflow runs
+        git diff-index --quiet HEAD || git commit -m "(Automated) MLflow pipeline artifacts and processed data"
+        if [ "$(git diff-index --quiet HEAD)" != "" ]; then
+          git push
+        else
+          echo "No changes to commit/push after MLflow pipeline."
+        fi

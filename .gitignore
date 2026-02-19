@@ -1,0 +1,6 @@
+# MLflow and processed data files
+.ipynb_checkpoints
+data/processed/diabetes_processed_data.csv
+data/raw/diabetes_prediction_dataset.csv
+mlflow.db
+output/mlruns
