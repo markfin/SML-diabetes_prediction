@@ -1,0 +1,7 @@
+artifact_location: file:///content/drive/MyDrive/Colab Notebooks/Demo7/mlruns/806486810901448011
+creation_time: 1771808350084
+experiment_id: '806486810901448011'
+last_update_time: 1771808350084
+lifecycle_stage: active
+name: Diabetes_Prediction_Hyperparameter_Tuning
+workspace: default

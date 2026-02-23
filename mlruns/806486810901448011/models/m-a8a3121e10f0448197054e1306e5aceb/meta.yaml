@@ -1,0 +1,10 @@
+artifact_location: file:///content/drive/MyDrive/Colab Notebooks/Demo7/mlruns/806486810901448011/models/m-a8a3121e10f0448197054e1306e5aceb/artifacts
+creation_timestamp: 1771808439686
+experiment_id: '806486810901448011'
+last_updated_timestamp: 1771808445077
+model_id: m-a8a3121e10f0448197054e1306e5aceb
+model_type: null
+name: logistic_regression_model
+source_run_id: 9fde8aa7a65749cb879f9ecaf40cf22c
+status: 2
+status_message: null

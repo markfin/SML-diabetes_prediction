@@ -1,0 +1,8 @@
+
+name: diabetes_prediction_project
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    command: "python MLProject/train_model.py"

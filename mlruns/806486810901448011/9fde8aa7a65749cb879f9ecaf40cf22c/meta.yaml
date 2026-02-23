@@ -1,0 +1,14 @@
+artifact_uri: file:///content/drive/MyDrive/Colab Notebooks/Demo7/mlruns/806486810901448011/9fde8aa7a65749cb879f9ecaf40cf22c/artifacts
+end_time: 1771808445134
+entry_point_name: ''
+experiment_id: '806486810901448011'
+lifecycle_stage: active
+run_id: 9fde8aa7a65749cb879f9ecaf40cf22c
+run_name: LogisticRegression_C0.001_Solverlbfgs
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771808438914
+status: 3
+tags: []
+user_id: root
