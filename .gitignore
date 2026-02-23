@@ -1,0 +1,9 @@
+
+mlruns/
+data/processed/
+mlflow_ui.log
+__pycache__/
+*.pyc
+*.log
+.ipynb_checkpoints/
+serve_output.log
