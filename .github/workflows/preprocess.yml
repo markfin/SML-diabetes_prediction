@@ -1,0 +1,40 @@
+
+name: Preprocess Diabetes Data
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  preprocess:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install pandas
+
+    - name: Run preprocessing script
+      run: python "/content/drive/MyDrive/Colab Notebooks/Demo7/automate_diabetes_prediction.py"
+      # Define example paths for raw and processed data
+      # Note: The script automate_diabetes_prediction.py should handle these paths internally
+      # based on the modifications made in the previous step.
+
+    - name: Configure Git
+      run |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Commit processed data
+      run |
+        git add -A
+        git diff-index --quiet HEAD || git commit -m "(Automated) Preprocessed diabetes data"
+        git push
