@@ -7,3 +7,5 @@ __pycache__/
 *.log
 .ipynb_checkpoints/
 serve_output.log
+nohup.out
+logs/

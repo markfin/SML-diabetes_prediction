@@ -1,4 +1,0 @@
-Usage: mlflow ui [OPTIONS]
-Try 'mlflow ui --help' for help.
-
-Error: Got unexpected extra argument (Notebooks/Demo7/mlruns)
